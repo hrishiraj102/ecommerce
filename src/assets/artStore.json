@@ -1,0 +1,99 @@
+{
+    "products": [
+        {
+            "id": 1001,
+            "pname": "Old Guitarist",
+            "artist": "Pablo Picasso",
+            "price": "120",
+            "link": "https://drawpaintacademy.com/wp-content/uploads/2019/01/Pablo-Picasso-Old-Guitarist-1903.jpg"
+        },
+        {
+            "id": 1002,
+            "pname": "Sunset of Heaven",
+            "artist": "Mercus",
+            "price": "100",
+            "link": "https://i.pinimg.com/originals/29/87/f0/2987f0a3e03c671273e7a5bc7fa63d8e.jpg"
+        },
+        {
+            "id": 1003,
+            "pname": "A Dark Fellow",
+            "artist": "Chinmoy",
+            "price": "90",
+            "link": "https://i.pinimg.com/originals/f2/a1/f5/f2a1f5a00ceefc664add2f820689bf57.jpg"
+        },
+        {
+            "id": 1004,
+            "pname": "Mask",
+            "artist": "Neel Pawan Baruah",
+            "price": "100",
+            "link": "https://5.imimg.com/data5/JG/RB/GLADMIN-2513936/hieroglyphics-art-500x500.jpg"
+        },
+        {
+            "id": 1005,
+            "pname": "True Face",
+            "artist": "Paolo",
+            "price": "120",
+            "link": "https://i.pinimg.com/originals/88/6c/2d/886c2dd9632df00ec675fdcf6d2fac92.jpg"
+        },
+        {
+            "id": 1006,
+            "pname": "Breathless",
+            "artist": "Chinmoy",
+            "price": "140",
+            "link": "https://i.pinimg.com/originals/f0/d9/0b/f0d90b249cd4582aaaeb47b9ecee3c14.jpg"
+        },
+        {
+            "id": 1007,
+            "pname": "The Mouth",
+            "artist": "Neel Pawan Baruah",
+            "price": "150",
+            "link": "https://i.pinimg.com/originals/be/e0/54/bee054b60d6cbb7a5dce78fb04a44a66.jpg"
+        },
+        {
+            "id": 1008,
+            "pname": "Last Supper",
+            "artist": "Benu Misra",
+            "price": "160",
+            "link": "https://www.nezine.com/upload/userfiles/image/Benu%20Misra%20Art%20/last%20supper.jpg"
+        },
+        {
+            "id": 1009,
+            "pname": "Monalisa",
+            "artist": "Leonardo da Vinci",
+            "price": "200",
+            "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+        }
+    ],
+    "photos": [
+        {
+            "id": 1,
+            "imgname": "img1",
+            "link": "https://www.nezine.com/upload/userfiles/image/Benu%20Misra%20Art%20/last%20supper.jpg"
+        },
+        {
+            "id": 2,
+            "imgname": "img2",
+            "link": "https://themindsjournal.com/wp-content/uploads/2021/04/Caption-This-30-April-2021.jpg"
+        },
+        {
+            "id": 3,
+            "imgname": "img3",
+            "link": "https://static.boredpanda.com/blog/wp-content/uploads/2017/03/8-Labyrinth-of-thoughts-58b688c3eef0e__700.jpg"
+        },
+        {
+            "id": 4,
+            "imgname": "img4",
+            "link": "https://miro.medium.com/v2/resize:fit:1000/format:webp/1*MOKgz9b3pH2t956ImfHI3w.jpeg"
+        },
+        {
+            "id": 5,
+            "imgname": "img5",
+            "link": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/504a3e55516947.598836aa6ea8b.jpg"
+        },
+        {
+            "id": 6,
+            "imgname": "img6",
+            "link": "https://drawpaintacademy.com/wp-content/uploads/2021/01/Claude-Monet-Woman-With-a-Parasol-1875.jpg.webp"
+        }
+    ]
+}
