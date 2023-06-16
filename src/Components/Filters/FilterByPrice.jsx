@@ -16,7 +16,7 @@ const Productlist = ({ name, price, image }) => (
 
 
 
-const FilterByPrice = () => {
+function FilterByPrice ({props}) {
 
     const [productPrice, setProductPrice] = useState([]);
 
@@ -25,12 +25,39 @@ const FilterByPrice = () => {
 
     }, []);
 
+    let filterValue= [];
 
-    const productAbove1000 = productPrice.filter(products =>
+    if(props ==1){
+        filterValue = productPrice.filter(products =>
 
-        products.price >= 150
+            products.price > 1000
+    
+        );
+    }
+    else if(props==2){
+        filterValue = productPrice.filter(products =>
+            500>= products.price <=1000
+    
+    
+    
+            );
 
-    );
+    }
+    else if(props==3){
+        filterValue = productPrice.filter(products =>
+            products.price <500
+        
+        );
+
+    }
+
+        
+
+       
+
+    
+
+    
 
 
 
@@ -39,7 +66,8 @@ const FilterByPrice = () => {
 
         <>
 
-            {productAbove1000.map((products) => (
+           
+            {filterValue.map((products) => (
                 <Productlist
                     key={products.id}
                     name={products.pname}
