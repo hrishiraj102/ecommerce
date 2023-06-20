@@ -27,14 +27,14 @@ function FilterByPrice ({props}) {
 
     let filterValue= [];
 
-    if(props ==1){
+    if(props ===1){
         filterValue = productPrice.filter(products =>
 
             products.price > 1000
     
         );
     }
-    else if(props==2){
+    else if(props===2){
         filterValue = productPrice.filter(products =>
             500>= products.price <=1000
     
@@ -43,7 +43,7 @@ function FilterByPrice ({props}) {
             );
 
     }
-    else if(props==3){
+    else if(props===3){
         filterValue = productPrice.filter(products =>
             products.price <500
         
@@ -52,15 +52,6 @@ function FilterByPrice ({props}) {
     }
 
         
-
-       
-
-    
-
-    
-
-
-
 
     return (
 
@@ -75,9 +66,9 @@ function FilterByPrice ({props}) {
                     image={products.link}
                 />
 
-            ))}
+            ))};
         </>
-    );
+    )
 
 
 
