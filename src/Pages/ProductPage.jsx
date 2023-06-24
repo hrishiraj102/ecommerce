@@ -4,22 +4,32 @@ import { Box, Grid, Typography } from "@mui/material";
 import ProductCall from "../Components/ProductCall";
 import FilterByPrice from "../Components/Filters/FilterByPrice";
 import FilterByBrand from "../Components/Filters/FilterByBrand";
+import SortByRating from "../Components/Filters/SortByRating";
 
 
 
 
 function ProductPage() {
     const [productList, setProductList] = useState(<ProductCall />)
+    
     const [checkList, setCheckList] = useState(0);
     const [checkList2, setCheckList2] = useState(0);
     const handleFilterChange = (filterValue) => {
         setProductList(<FilterByPrice props={filterValue} />)
         setCheckList(filterValue)
+        setCheckList2(0)
+    }
+
+    const handleRateSortByDecending= () =>{
+        setProductList(<SortByRating/>)
+        setCheckList(0)
+        setCheckList2(0)
     }
 
     const handleBrandChange= (filterValue)=> {
         setProductList(<FilterByBrand props={filterValue} />)
         setCheckList2(filterValue)
+        setCheckList(0)
 
     }
 
@@ -62,11 +72,12 @@ function ProductPage() {
                     Zudio
                 </label>
             </div>
+            <div>
+                <button type="button" onClick={handleRateSortByDecending}>Sort by Rating</button>
+            </div>
 
             {productList}
-
-
-
+            
 
             {/* <FilterByPrice props = {3}/> */}
         </div>
