@@ -4,7 +4,7 @@
             "id": 1001,
             "pname": "Old Guitarist",
             "artist": "Pablo Picasso",
-            "price": "120",
+            "price": 120,
             "brand": "Nike",
             "rating": 5,
             "link": "https://drawpaintacademy.com/wp-content/uploads/2019/01/Pablo-Picasso-Old-Guitarist-1903.jpg"
@@ -13,7 +13,7 @@
             "id": 1002,
             "pname": "Sunset of Heaven",
             "artist": "Mercus",
-            "price": "1050",
+            "price": 1050,
             "brand": "Addidas",
             "rating": 4,
             "link": "https://i.pinimg.com/originals/29/87/f0/2987f0a3e03c671273e7a5bc7fa63d8e.jpg"
@@ -22,7 +22,7 @@
             "id": 1003,
             "pname": "A Dark Fellow",
             "artist": "Chinmoy",
-            "price": "90",
+            "price": 90,
             "brand": "Reebok",
             "rating": 2,
             "link": "https://i.pinimg.com/originals/f2/a1/f5/f2a1f5a00ceefc664add2f820689bf57.jpg"
@@ -31,7 +31,7 @@
             "id": 1004,
             "pname": "Mask",
             "artist": "Neel Pawan Baruah",
-            "price": "600",
+            "price": 600,
             "brand": "Nike",
             "rating": 9,
             "link": "https://5.imimg.com/data5/JG/RB/GLADMIN-2513936/hieroglyphics-art-500x500.jpg"
@@ -40,7 +40,7 @@
             "id": 1005,
             "pname": "True Face",
             "artist": "Paolo",
-            "price": "120",
+            "price": 120,
             "brand": "Addidas",
             "rating": 3,
             "link": "https://i.pinimg.com/originals/88/6c/2d/886c2dd9632df00ec675fdcf6d2fac92.jpg"
@@ -49,7 +49,7 @@
             "id": 1006,
             "pname": "Breathless",
             "artist": "Chinmoy",
-            "price": "140",
+            "price": 140,
             "brand": "Reebok",
             "rating": 20,
             "link": "https://i.pinimg.com/originals/f0/d9/0b/f0d90b249cd4582aaaeb47b9ecee3c14.jpg"
@@ -58,7 +58,7 @@
             "id": 1007,
             "pname": "The Mouth",
             "artist": "Neel Pawan Baruah",
-            "price": "250",
+            "price": 250,
             "brand": "Nike",
             "rating": 10,
             "link": "https://i.pinimg.com/originals/be/e0/54/bee054b60d6cbb7a5dce78fb04a44a66.jpg"
@@ -67,7 +67,7 @@
             "id": 1008,
             "pname": "Last Supper",
             "artist": "Benu Misra",
-            "price": "800",
+            "price": 800,
             "brand": "Zudio",
             "rating": 30,
             "link": "https://www.nezine.com/upload/userfiles/image/Benu%20Misra%20Art%20/last%20supper.jpg"
@@ -76,7 +76,7 @@
             "id": 1009,
             "pname": "Monalisa",
             "artist": "Leonardo da Vinci",
-            "price": "200",
+            "price": 200,
             "brand": "Addidas",
             "rating": 40,
             "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
