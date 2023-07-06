@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import ProductPage from './Pages/ProductPage';
+import ProductListPage from './Pages/ProductListPage';
+import ProductDetailsPage from './Pages/ProductDetailsPage';
 
 function App() {
   return (
+
     <div className="App">
-      <ProductPage/>
+
+      <ProductDetailsPage
+        props={1} />
+      {/* <ProductListPage/> */}
     </div>
   );
 }

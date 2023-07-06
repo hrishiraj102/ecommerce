@@ -10,7 +10,7 @@ import SortByPrice from "../Components/Filters/SortByPrice";
 
 
 
-function ProductPage() {
+function ProductListPage() {
     const [productList, setProductList] = useState(<ProductCall />)
 
     const [checkList, setCheckList] = useState(0);      //Using it for removing check from other options of price
@@ -112,4 +112,4 @@ function ProductPage() {
 
 }
 
-export default ProductPage;
+export default ProductListPage;
