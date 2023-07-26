@@ -10,7 +10,7 @@ function App() {
 
     <div className="App">
       {<LoginPage/>}
-      {/* {<CartPage props={5}/>} */}
+      {<CartPage props={5}/>}
       {/* <ProductDetailsPage
         props={1} />
       <ProductListPage/> */}

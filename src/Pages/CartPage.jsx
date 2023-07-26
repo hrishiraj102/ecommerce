@@ -23,8 +23,8 @@ function CartPage(props) {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-
-        fetch(`https://dummyjson.com/carts/${props.props}`)
+        const idCache = sessionStorage.getItem('id');
+        fetch(`https://dummyjson.com/carts/${idCache}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data.products) {
@@ -34,7 +34,7 @@ function CartPage(props) {
 
             })
             .catch(error => console.error('Error', error));
-    }, [props]
+    }, []
 
     );
 
