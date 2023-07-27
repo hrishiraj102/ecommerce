@@ -25,9 +25,9 @@ const ProductCall = () => {
     return (
         <div  >
 
-            
+
             {product.map((products) => (
-                
+
                 <Productlist
                     key={products.id}
                     name={products.pname}
@@ -39,7 +39,7 @@ const ProductCall = () => {
             )
             )
             }
-            
+
 
         </div>
     );

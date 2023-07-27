@@ -6,6 +6,7 @@ import FilterByPrice from "../Components/Filters/FilterByPrice";
 import FilterByBrand from "../Components/Filters/FilterByBrand";
 import SortByRating from "../Components/Filters/SortByRating";
 import SortByPrice from "../Components/Filters/SortByPrice";
+import { Link, Outlet } from "react-router-dom";
 
 
 
@@ -55,7 +56,20 @@ function ProductListPage() {
 
     return (
         <div>
-
+            <nav>
+                        <ul>
+                            <li>
+                                <Link to={"/"}>Shop</Link>
+                            </li>
+                            <li>
+                                <Link to={"/loginpage"}>Login</Link>
+                            </li>
+                            <li>
+                                <Link to={"/cartpage"}>My Cart</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <Outlet/>
             <div>
             <Typography variant="h6" >Filter By Price</Typography>
                 <label>

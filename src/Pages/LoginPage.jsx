@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
 
@@ -64,6 +65,19 @@ function LoginPage() {
     return (
         <>
             <h4>Login-</h4>
+            <nav>
+                        <ul>
+                            <li>
+                                <Link to={"/"}>Shop</Link>
+                            </li>
+                            <li>
+                                <Link to={"/loginpage"}>Login</Link>
+                            </li>
+                            <li>
+                                <Link to={"/cartpage"}>My Cart</Link>
+                            </li>
+                        </ul>
+                    </nav>
             <form >
                 <label>Username:</label>
                 <input type="text" name="username" id="userID" onChange={(e) => setUsername(e.target.value)} ></input>

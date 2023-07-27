@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import BillComponent from "../Components/Cart/BillComponent";
+import { Link } from "react-router-dom";
 
 const CartItemsList = ({ title, price, quantity, total }) => (
     <div>
@@ -17,13 +18,13 @@ const CartItemsList = ({ title, price, quantity, total }) => (
 
 
 
-function CartPage(props) {
+function CartPage() {
 
 
     const [cartItems, setCartItems] = useState([]);
-
+    const [idCache,setIdCache]= useState();
     useEffect(() => {
-        const idCache = sessionStorage.getItem('id');
+        setIdCache(sessionStorage.getItem('id'));
         fetch(`https://dummyjson.com/carts/${idCache}`)
             .then((res) => res.json())
             .then((data) => {
@@ -34,7 +35,7 @@ function CartPage(props) {
 
             })
             .catch(error => console.error('Error', error));
-    }, []
+    }, [idCache]
 
     );
 
@@ -43,6 +44,19 @@ function CartPage(props) {
 
     return (
         <div>
+            <nav>
+                        <ul>
+                            <li>
+                                <Link to={"/"}>Shop</Link>
+                            </li>
+                            <li>
+                                <Link to={"/loginpage"}>Login</Link>
+                            </li>
+                            <li>
+                                <Link to={"/cartpage"}>My Cart</Link>
+                            </li>
+                        </ul>
+                    </nav>
             {cartItems ? (cartItems.map((product) => (
 
                 <CartItemsList
