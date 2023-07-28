@@ -14,8 +14,8 @@ function App() {
       {<RouteComponent/>}
       {/* {<LoginPage/>} */}
       {/* {<CartPage props={5}/>} */}
-      <ProductDetailsPage
-        props={1} />
+      {/* <ProductDetailsPage
+        props={1} /> */}
      {/* { <ProductListPage/> } */}
     </div>
   );

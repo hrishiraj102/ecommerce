@@ -67,6 +67,10 @@ function ProductListPage() {
                             <li>
                                 <Link to={"/cartpage"}>My Cart</Link>
                             </li>
+                            
+                                
+                           
+                            
                         </ul>
                     </nav>
                     <Outlet/>

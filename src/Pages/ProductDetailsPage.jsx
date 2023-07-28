@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { ProductDetailsReturn } from "../Components/ProductDetails/ProductDetailsReturn";
+import { useParams } from "react-router-dom";
 
 function ProductDetailsPage(props) {
 
     const [productAPI, setProductAPI] = useState();
-   
+    const {id}= useParams();
 
     useEffect(() => {
         
         // props.props because props itself a obj so to get the variable we need to call its value
-        fetch(`https://dummyjson.com/products/${props.props}`)
+        fetch(`https://dummyjson.com/products/${id}`)
             .then(res => res.json())
             .then((data) => {
                 console.log(data)
