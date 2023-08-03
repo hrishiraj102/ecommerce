@@ -17,13 +17,13 @@ const RouteComponent = () => {
                 <div>
 
 
-                    
+
                     <div>
                         <Routes>
-                            <Route exact path="/" element={<ProductListPage/>} />
-                            <Route path="/product/:id" element={<ProductDetailsPage/>}/>
-                            <Route path="/cartpage" element={<CartPage/>} />
-                            <Route path="/loginpage" element={<LoginPage/>}/>
+                            <Route exact path="/" element={<ProductListPage />} />
+                            <Route path="/product/:id" element={<ProductDetailsPage />} />
+                            <Route path="/cartpage" element={<CartPage />} />
+                            <Route path="/loginpage" element={<LoginPage />} />
                         </Routes>
 
                     </div>

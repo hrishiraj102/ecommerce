@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import productData from "../../assets/artStore.json"
 import { Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
+const Productlist = ({ id, name, price, image, rating }) => (
+    <Grid height="320px"
+        width="280px">
+        <Link to={`/product/${id}`}>
+            <img src={image} alt={name} style={{ height: "260px", width: "250px" }} /><br />
 
-const Productlist = ({ name, price, image, rating }) => (
-    <Grid height="300px"
-        width="250px">
-
-        <img src={image} alt={name} style={{ height: "300px", width: "250px" }} /><br />
-        <Typography variant="body">{name}</Typography>
-        <Typography variant="body2">{price}</Typography>
-        <Typography variant="body2">{rating}</Typography>
+            <Typography variant="body">{name}</Typography>
+            <Typography variant="body2">{price}</Typography>
+            <Typography variant="body2">{rating}</Typography>
+        </Link>
     </Grid>
 
 );
@@ -20,7 +22,11 @@ function SortByRating() {
     const [Rating, setRating] = useState([]);
 
     useEffect(() => {
-        setRating(productData.products);
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then(data => setRating(data.products))
+
+
     }, []);
 
     const sortData = Rating.sort((a, b) => {
@@ -38,13 +44,14 @@ function SortByRating() {
 
     return (
         <>
-            {sortData.map((product) => (
+            {sortData.map((products) => (
                 <Productlist
-                    key={product.id}
-                    name={product.pname}
-                    price={product.price}
-                    rating={product.rating}
-                    image={product.link}
+                    key={products.id}
+                    id={products.id}
+                    name={products.title}
+                    price={products.price}
+                    rating={products.rating}
+                    image={products.thumbnail}
                 />
             )
 

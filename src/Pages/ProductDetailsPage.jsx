@@ -29,7 +29,7 @@ function ProductDetailsPage(props) {
                 <ProductDetailsReturn
                     key={productAPI.id}
                     title={productAPI.title}
-                    price={productAPI.brand}
+                    price={productAPI.price}
                     description={productAPI.description}
                     brand={productAPI.brand}
                     rating={productAPI.rating}
