@@ -1,46 +1,40 @@
 import { useEffect, useState } from "react"
 import productData from "../../assets/artStore.json"
 import { Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
-const Productlist = ({ name, price, image, rating }) => (
-    <Grid height="300px"
-        width="250px">
+const Productlist = ({ id, name, price, image, rating }) => (
+    <Grid height="320px"
+        width="280px">
+        <Link to={`/product/${id}`}>
+            <img src={image} alt={name} style={{ height: "260px", width: "250px" }} /><br />
 
-        <img src={image} alt={name} style={{ height: "300px", width: "250px" }} /><br />
-        <Typography variant="body">{name}</Typography>
-        <Typography variant="body2">{price}</Typography>
-        <Typography variant="body2">{rating}</Typography>
+            <Typography variant="body">{name}</Typography>
+            <Typography variant="body2">{price}</Typography>
+            <Typography variant="body2">{rating}</Typography>
+        </Link>
     </Grid>
 
 );
 
-function FilterByBrand({props}){
-    const [productBrand,setBrand] = useState([]);
+function FilterByBrand({ props }) {
+    const [productBrand, setBrand] = useState([]);
 
-    useEffect(()=> {
-        setBrand (productData.products);
-    },[]);
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json()
+            )
+            .then((data) => setBrand(data.products))
 
-    let filterValue= [];
+    }, [props]);
 
-    switch(props){
-        case 1:
-            filterValue= productBrand.filter(products =>
-                products.brand === "Nike")
-                break;
-        case 2:
-            filterValue= productBrand.filter(products =>
-                products.brand ==="Addidas")
-                break;
-        case 3:
-            filterValue= productBrand.filter(products =>
-                products.brand === "Reebok")
-                break;
-        case 4:
-            filterValue= productBrand.filter(products =>
-                products.brand === "Zudio")
-                break;
-        
+    let filterValue = [];
+
+    switch (props) {
+        case props:
+            filterValue = productBrand.filter(products =>
+                products.brand === `${props}`)
+            break;
 
     }
 
@@ -48,20 +42,21 @@ function FilterByBrand({props}){
 
         <>
 
-            {filterValue.map((products)=> (
-                <Productlist 
+            {filterValue.map((products) => (
+                <Productlist
                     key={products.id}
-                    name={products.pname}
+                    id={products.id}
+                    name={products.title}
                     price={products.price}
                     rating={products.rating}
-                    image={products.link}
+                    image={products.thumbnail}
                 />
             ))}
 
         </>
     )
 
-    
+
 }
 
 export default FilterByBrand;
