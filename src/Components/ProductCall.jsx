@@ -21,14 +21,18 @@ const Productlist = ({ id, name, price, image, rating }) => (
 
 const ProductCall = () => {
     const [product, setProducts] = useState([]);
+
+    const [getCategory, setGetCategory] = useState(sessionStorage.getItem('currentCategory'))
     useEffect(() => {
+
         fetch('https://dummyjson.com/products')
             .then(res => res.json()
             )
             .then((data) => setProducts(data.products))
 
+
         //setProducts(productsData.products);
-    }, []);
+    }, [setGetCategory]);
 
     return (
         <div  >

@@ -7,6 +7,7 @@ import FilterByBrand, { brandList } from "../Components/Filters/FilterByBrand";
 import SortByRating from "../Components/Filters/SortByRating";
 import SortByPrice from "../Components/Filters/SortByPrice";
 import { Link, Outlet } from "react-router-dom";
+import SetCategory from "../Components/Filters/SetCategory";
 
 
 function ProductListPage() {
@@ -14,6 +15,8 @@ function ProductListPage() {
     const [brands, setBrands] = useState([]); //brandAPI
     const [checkList, setCheckList] = useState(0);      //Using it for removing check from other options of price
     const [checkList2, setCheckList2] = useState();    //Using it for removing check from other options of brand
+
+
 
     //Calling Api
     useEffect(() => {
@@ -34,6 +37,31 @@ function ProductListPage() {
 
     }, [])
 
+
+    //Updating to default of item from cache when link click
+    const handleShopLinkChange = () => {
+        window.sessionStorage.setItem('currentCategory', 'All')
+    }
+
+    const navBar = () => {
+        return (
+            <>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to={"/"} onClick={handleShopLinkChange()}>Shop</Link>
+                        </li>
+                        <li>
+                            <Link to={"/loginpage"}>Login</Link>
+                        </li>
+                        <li>
+                            <Link to={"/cartpage"}>My Cart</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </>
+        )
+    }
 
     //Filter by Price
     const filterViewByPrice = () => {
@@ -135,30 +163,15 @@ function ProductListPage() {
         setCheckList2(0)
     }
 
-    const navBar = () => {
-        return (
-            <>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to={"/"}>Shop</Link>
-                        </li>
-                        <li>
-                            <Link to={"/loginpage"}>Login</Link>
-                        </li>
-                        <li>
-                            <Link to={"/cartpage"}>My Cart</Link>
-                        </li>
-                    </ul>
-                </nav>
-            </>
-        )
-    }
+
 
 
     return (
         <div>
             {navBar()}
+            <div>
+                {<SetCategory />}
+            </div>
             <div>
                 {filterViewByPrice()}
             </div>
