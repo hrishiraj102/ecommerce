@@ -19,10 +19,10 @@ const Productlist = ({ id, name, price, image, rating }) => (
 );
 
 
-const ProductCall = () => {
+const ProductCall = ({category}) => {
     const [product, setProducts] = useState([]);
 
-    const [getCategory, setGetCategory] = useState(sessionStorage.getItem('currentCategory'))
+   // const [getCategory, setGetCategory] = useState(sessionStorage.getItem('currentCategory'))
     useEffect(() => {
 
         fetch('https://dummyjson.com/products')
@@ -32,13 +32,14 @@ const ProductCall = () => {
 
 
         //setProducts(productsData.products);
-    }, [setGetCategory]);
+    }, []);
+    const filteredProducts = category === 'All' ? product : product.filter((e)=> e.category === category);
 
     return (
         <div  >
 
 
-            {product.map((products) => (
+            {filteredProducts.map((products) => (
 
                 <Productlist
                     key={products.id}

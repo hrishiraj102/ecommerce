@@ -11,7 +11,7 @@ import SetCategory from "../Components/Filters/SetCategory";
 
 
 function ProductListPage() {
-    const [productList, setProductList] = useState(<ProductCall />)
+    const [productList, setProductList] = useState()
     const [brands, setBrands] = useState([]); //brandAPI
     const [checkList, setCheckList] = useState(0);      //Using it for removing check from other options of price
     const [checkList2, setCheckList2] = useState();    //Using it for removing check from other options of brand
@@ -36,7 +36,10 @@ function ProductListPage() {
             });
 
     }, [])
-
+    
+    useEffect(()=>{
+        setProductList(<ProductCall category={'All'} />)
+    },[])
 
     //Updating to default of item from cache when link click
     const handleShopLinkChange = () => {
@@ -163,6 +166,51 @@ function ProductListPage() {
         setCheckList2(0)
     }
 
+    //Category 
+    const getCategory = sessionStorage.getItem('currentCategory');
+    const [checkCategory, setCheckCategory] = useState(getCategory);
+    const [listOfCategory, setListOfCategory] = useState([]);
+    useEffect(() => {
+
+        fetch('https://dummyjson.com/products/categories')
+            .then(res => res.json())
+            .then(data => setListOfCategory(data));
+
+    }, []);
+
+    const handleCategory = (currCategory) => {
+        setCheckCategory(currCategory);
+      
+        
+        setProductList(<ProductCall category={currCategory}/>)
+    
+    }
+    
+    const SetCategory=()=>{
+        return (
+            <div>
+                <Typography variant="h6">List Of Category</Typography>
+                <div>
+                    <span >
+                        <label>
+                            <input type='radio' value={"All"} checked={checkCategory === "All"} onChange={() => handleCategory("All")} />
+                            All
+                        </label>
+                    </span>
+                    {listOfCategory.map((data) =>
+                        <span key={data}>
+                            <label>
+                                <input type='radio' value={data} checked={checkCategory === data} onChange={() => handleCategory(data)} />
+                                {data}
+                            </label>
+                        </span>
+                    )}
+    
+                </div>
+            </div>
+    
+        )
+    }
 
 
 
