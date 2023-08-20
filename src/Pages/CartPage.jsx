@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import BillComponent from "../Components/Cart/BillComponent";
 import { Link } from "react-router-dom";
+import CheckOutPage from "./CheckOutPage";
 
 const CartItemsList = ({ title, price, quantity, total }) => (
     <div>
@@ -15,6 +16,17 @@ const CartItemsList = ({ title, price, quantity, total }) => (
     </div>
 
 );
+
+const CheckOutBtn=(cartItems)=>{
+    const cartItemJson = JSON.stringify(cartItems)
+    return(
+        <>
+        
+        <Link to={`/checkout`}>Proceed To Checkout</Link>
+        </>
+    ) 
+    
+}
 
 
 
@@ -39,6 +51,7 @@ function CartPage() {
 
     );
 
+    
     
 
 
@@ -71,7 +84,12 @@ function CartPage() {
 
             }
             {cartItems.length>1 ? (
-                <BillComponent cartItems={cartItems}/>): <p>Loading...</p>}
+                <BillComponent cartItems={cartItems}/>,
+                <CheckOutBtn cartItems={cartItems}/>
+
+                
+                
+                ) : <p>Loading...</p>}
 
 
 

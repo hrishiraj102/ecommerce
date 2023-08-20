@@ -7,7 +7,7 @@ import FilterByBrand, { brandList } from "../Components/Filters/FilterByBrand";
 import SortByRating from "../Components/Filters/SortByRating";
 import SortByPrice from "../Components/Filters/SortByPrice";
 import { Link, Outlet } from "react-router-dom";
-import SetCategory from "../Components/Filters/SetCategory";
+
 
 
 function ProductListPage() {
@@ -60,6 +60,9 @@ function ProductListPage() {
                         <li>
                             <Link to={"/cartpage"}>My Cart</Link>
                         </li>
+                        {/* <li>
+                            <Link to={`/category/smartphones`}>Smartphone</Link>
+                         </li> */}
                     </ul>
                 </nav>
             </>

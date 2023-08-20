@@ -29,7 +29,7 @@ const ProductCall = ({category}) => {
             .then(res => res.json()
             )
             .then((data) => setProducts(data.products))
-
+            
 
         //setProducts(productsData.products);
     }, []);

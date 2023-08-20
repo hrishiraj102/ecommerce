@@ -4,6 +4,8 @@ import LoginPage from "../../Pages/LoginPage"
 import CartPage from "../../Pages/CartPage"
 import ProductDetailsPage from "../../Pages/ProductDetailsPage"
 import ProductCall from "../ProductCall"
+import ProductListPageByCategory from "../../Pages/ProductListPageByCategory"
+import CheckOutPage from "../../Pages/CheckOutPage"
 
 
 const RouteComponent = () => {
@@ -24,6 +26,8 @@ const RouteComponent = () => {
                             <Route path="/product/:id" element={<ProductDetailsPage />} />
                             <Route path="/cartpage" element={<CartPage />} />
                             <Route path="/loginpage" element={<LoginPage />} />
+                            <Route path="/category/:cat" element={<ProductListPageByCategory  />}/>
+                            <Route path="/checkout" element={<CheckOutPage />}/>
                         </Routes>
 
                     </div>
