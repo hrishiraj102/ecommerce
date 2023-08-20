@@ -51,9 +51,11 @@ const CheckOutPage = () => {
         <div>
             {addressView()}
             {checkOut.length > 1 ? (
-
+                <>
                 <BillComponent cartItems={checkOut} />
+                <button type="submit" onClick={()=> alert("Coming soon!")}>Order Confirm</button>
 
+                </>
 
 
             ) : <p>Loading...</p>}

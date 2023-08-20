@@ -17,15 +17,15 @@ const CartItemsList = ({ title, price, quantity, total }) => (
 
 );
 
-const CheckOutBtn=(cartItems)=>{
+const CheckOutBtn = (cartItems) => {
     const cartItemJson = JSON.stringify(cartItems)
-    return(
+    return (
         <>
-        
-        <Link to={`/checkout`}>Proceed To Checkout</Link>
+
+            <Link to={`/checkout`}>Proceed To Checkout</Link>
         </>
-    ) 
-    
+    )
+
 }
 
 
@@ -34,7 +34,7 @@ function CartPage() {
 
 
     const [cartItems, setCartItems] = useState([]);
-    const [idCache,setIdCache]= useState();
+    const [idCache, setIdCache] = useState();
     useEffect(() => {
         setIdCache(sessionStorage.getItem('id'));
         fetch(`https://dummyjson.com/carts/${idCache}`)
@@ -51,25 +51,25 @@ function CartPage() {
 
     );
 
-    
-    
+
+
 
 
     return (
         <div>
             <nav>
-                        <ul>
-                            <li>
-                                <Link to={"/"}>Shop</Link>
-                            </li>
-                            <li>
-                                <Link to={"/loginpage"}>Login</Link>
-                            </li>
-                            <li>
-                                <Link to={"/cartpage"}>My Cart</Link>
-                            </li>
-                        </ul>
-                    </nav>
+                <ul>
+                    <li>
+                        <Link to={"/"}>Shop</Link>
+                    </li>
+                    <li>
+                        <Link to={"/loginpage"}>Login</Link>
+                    </li>
+                    <li>
+                        <Link to={"/cartpage"}>My Cart</Link>
+                    </li>
+                </ul>
+            </nav>
             {cartItems ? (cartItems.map((product) => (
 
                 <CartItemsList
@@ -83,13 +83,15 @@ function CartPage() {
             ))) : (<p> Loading...</p>)
 
             }
-            {cartItems.length>1 ? (
-                <BillComponent cartItems={cartItems}/>,
-                <CheckOutBtn cartItems={cartItems}/>
+            {cartItems.length > 1 ? (
+                <>
 
-                
-                
-                ) : <p>Loading...</p>}
+                    <BillComponent cartItems={cartItems} />
+                    <CheckOutBtn cartItems={cartItems} />
+                </>
+
+
+            ) : <p>Loading...</p>}
 
 
 
