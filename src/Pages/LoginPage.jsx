@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ResponsiveAppBar from "../Components/UI/ResponsiveAppBar";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 function LoginPage() {
 
@@ -30,6 +32,8 @@ function LoginPage() {
                             sessionStorage.setItem('token', data.token);  //SessionStorage help to store temporary some data HTTP Feature 
                             sessionStorage.setItem('username', data.username);
                             sessionStorage.setItem('id', data.id);
+                            sessionStorage.setItem("image", data.image);
+                           
                             setLoginStatus("Logging Successful");
                         }
                         else {
@@ -64,20 +68,14 @@ function LoginPage() {
 
     return (
         <>
-            <h4>Login-</h4>
-            <nav>
-                        <ul>
-                            <li>
-                                <Link to={"/"}>Shop</Link>
-                            </li>
-                            <li>
-                                <Link to={"/loginpage"}>Login</Link>
-                            </li>
-                            <li>
-                                <Link to={"/cartpage"}>My Cart</Link>
-                            </li>
-                        </ul>
-                    </nav>
+           
+           
+            <Grid2>
+                <ResponsiveAppBar/>
+               
+            </Grid2>
+        
+    
             <form >
                 <label>Username:</label>
                 <input type="text" name="username" id="userID" onChange={(e) => setUsername(e.target.value)} ></input>

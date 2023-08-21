@@ -7,6 +7,8 @@ import FilterByBrand, { brandList } from "../Components/Filters/FilterByBrand";
 import SortByRating from "../Components/Filters/SortByRating";
 import SortByPrice from "../Components/Filters/SortByPrice";
 import { Link, Outlet } from "react-router-dom";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import ResponsiveAppBar from "../Components/UI/ResponsiveAppBar";
 
 
 
@@ -42,30 +44,13 @@ function ProductListPage() {
     },[])
 
     //Updating to default of item from cache when link click
-    const handleShopLinkChange = () => {
-        window.sessionStorage.setItem('currentCategory', 'All')
-    }
-
+    
     const navBar = () => {
         return (
-            <>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to={"/"} onClick={handleShopLinkChange()}>Shop</Link>
-                        </li>
-                        <li>
-                            <Link to={"/loginpage"}>Login</Link>
-                        </li>
-                        <li>
-                            <Link to={"/cartpage"}>My Cart</Link>
-                        </li>
-                        {/* <li>
-                            <Link to={`/category/smartphones`}>Smartphone</Link>
-                         </li> */}
-                    </ul>
-                </nav>
-            </>
+            <Grid2>
+                <ResponsiveAppBar/>
+               
+            </Grid2>
         )
     }
 
@@ -218,27 +203,25 @@ function ProductListPage() {
 
 
     return (
-        <div>
+        <Grid2>
             {navBar()}
-            <div>
-                {<SetCategory />}
-            </div>
-            <div>
-                {filterViewByPrice()}
-            </div>
 
-            <div>
+                {<SetCategory />}
+            
+            
+                {filterViewByPrice()}
+            
+
+        
                 {filterViewByBrand()}
 
-            </div>
-            <div>
+           
                 {viewSortbyRating()}
-            </div>
-            <div>
+            
                 {viewSortbyPrice()}
-            </div>
+
             {productList}
-        </div>
+        </Grid2>
     )
 
 

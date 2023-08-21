@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import BillComponent from "../Components/Cart/BillComponent";
 import { Link } from "react-router-dom";
 import CheckOutPage from "./CheckOutPage";
+import ResponsiveAppBar from "../Components/UI/ResponsiveAppBar";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const CartItemsList = ({ title, price, quantity, total }) => (
     <div>
@@ -57,19 +59,10 @@ function CartPage() {
 
     return (
         <div>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to={"/"}>Shop</Link>
-                    </li>
-                    <li>
-                        <Link to={"/loginpage"}>Login</Link>
-                    </li>
-                    <li>
-                        <Link to={"/cartpage"}>My Cart</Link>
-                    </li>
-                </ul>
-            </nav>
+            <Grid2>
+                <ResponsiveAppBar/>
+               
+            </Grid2>
             {cartItems ? (cartItems.map((product) => (
 
                 <CartItemsList
