@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Productlist = ({ id, name, price, image, rating }) => (
     <Grid height="320px"
-        width="280px">
+        width="280px" >
         <Link to={`/product/${id}`}>
             <img src={image} alt={name} style={{ height: "260px", width: "250px" }} /><br />
 
@@ -36,11 +36,11 @@ const ProductCall = ({category}) => {
     const filteredProducts = category === 'All' ? product : product.filter((e)=> e.category === category);
 
     return (
-        <div  >
+        <Grid container spacing={"2px"} sx={{direction:"row"}} >
 
 
             {filteredProducts.map((products) => (
-
+                
                 <Productlist
                     key={products.id}
                     id={products.id}
@@ -49,13 +49,14 @@ const ProductCall = ({category}) => {
                     rating={products.rating}
                     image={products.thumbnail}
                 />
+              
 
             )
             )
             }
 
 
-        </div>
+        </Grid>
     );
 
 

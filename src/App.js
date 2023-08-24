@@ -1,4 +1,5 @@
 
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import './App.css';
 
 import RouteComponent from './Components/Routing/RouteComponent';
@@ -6,11 +7,11 @@ import RouteComponent from './Components/Routing/RouteComponent';
 function App() {
   return (
 
-    <div className="App">
+    <Grid2>
 
-      {<RouteComponent/>}
-      
-    </div>
+      {<RouteComponent />}
+
+    </Grid2>
   );
 }
 

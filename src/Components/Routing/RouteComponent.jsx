@@ -16,11 +16,7 @@ const RouteComponent = () => {
         <>
 
             <BrowserRouter>
-                <div>
-
-
-
-                    <div>
+                
                         <Routes>
                             <Route exact path="/" element={<ProductListPage />} />
                             <Route path="/product/:id" element={<ProductDetailsPage />} />
@@ -30,8 +26,8 @@ const RouteComponent = () => {
                             <Route path="/checkout" element={<CheckOutPage />}/>
                         </Routes>
 
-                    </div>
-                </div>
+                
+                
 
             </BrowserRouter>
 

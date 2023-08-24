@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, FormControl, Grid, InputLabel, MenuItem, Select, Stack, Typography } from "@mui/material";
 import ProductCall from "../Components/ProductCall";
 import FilterByPrice from "../Components/Filters/FilterByPrice";
 import FilterByBrand, { brandList } from "../Components/Filters/FilterByBrand";
@@ -38,18 +38,18 @@ function ProductListPage() {
             });
 
     }, [])
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         setProductList(<ProductCall category={'All'} />)
-    },[])
+    }, [])
 
     //Updating to default of item from cache when link click
-    
+
     const navBar = () => {
         return (
             <Grid2>
-                <ResponsiveAppBar/>
-               
+                <ResponsiveAppBar />
+
             </Grid2>
         )
     }
@@ -59,18 +59,20 @@ function ProductListPage() {
         return (
             <div>
                 <Typography variant="h6" >Filter By Price</Typography>
-                <label>
-                    <input type="radio" name="filterByPrice" value={1} checked={checkList === 1} onChange={() => handleFilterByPrice(1)} />
-                    Above 1000
-                </label>
-                <label>
-                    <input type="radio" name="filterByPrice" value={2} checked={checkList === 2} onChange={() => handleFilterByPrice(2)} />
-                    500 to 1000
-                </label>
-                <label>
-                    <input type="radio" name="filterByPrice" value={3} checked={checkList === 3} onChange={() => handleFilterByPrice(3)} />
-                    Below 500
-                </label>
+                <Stack>
+                    <label>
+                        <input type="radio" name="filterByPrice" value={1} checked={checkList === 1} onChange={() => handleFilterByPrice(1)} />
+                        Above 1000
+                    </label>
+                    <label>
+                        <input type="radio" name="filterByPrice" value={2} checked={checkList === 2} onChange={() => handleFilterByPrice(2)} />
+                        500 to 1000
+                    </label>
+                    <label>
+                        <input type="radio" name="filterByPrice" value={3} checked={checkList === 3} onChange={() => handleFilterByPrice(3)} />
+                        Below 500
+                    </label>
+                </Stack>
             </div>
         )
 
@@ -98,13 +100,13 @@ function ProductListPage() {
                 <Typography variant="h6" >Filter by Brand</Typography>
                 {brands.map((brand, index) => (
 
-                    <span key={index}>
+                    <Stack key={index}>
                         <label>
                             <input type="radio" name="filterByBrand" value={brand} checked={checkList2 === brand} onChange={() => handleBrandChange(brand)} />
                             {brand}
 
                         </label>
-                    </span>
+                    </Stack>
 
                 )
 
@@ -168,60 +170,84 @@ function ProductListPage() {
 
     const handleCategory = (currCategory) => {
         setCheckCategory(currCategory);
-      
-        
-        setProductList(<ProductCall category={currCategory}/>)
-    
+
+
+        setProductList(<ProductCall category={currCategory} />)
+
     }
-    
-    const SetCategory=()=>{
+
+    //Category box
+    const SetCategory = () => {
         return (
-            <div>
-                <Typography variant="h6">List Of Category</Typography>
-                <div>
-                    <span >
-                        <label>
-                            <input type='radio' value={"All"} checked={checkCategory === "All"} onChange={() => handleCategory("All")} />
-                            All
-                        </label>
-                    </span>
-                    {listOfCategory.map((data) =>
-                        <span key={data}>
-                            <label>
-                                <input type='radio' value={data} checked={checkCategory === data} onChange={() => handleCategory(data)} />
-                                {data}
-                            </label>
-                        </span>
-                    )}
-    
-                </div>
-            </div>
-    
+            <Grid2 width={"200px"}>
+
+                <Grid >
+                    <FormControl fullWidth>
+                        <InputLabel sx={{ alignContent: "center" }} id="category">List Of Category</InputLabel>
+                        <Select
+                            labelId="category"
+
+
+                            label="Cat"
+
+                        >
+
+                            <MenuItem type='radio' value={"All"} checked={checkCategory === "All"} onClick={() => handleCategory("All")} >
+                                All
+                            </MenuItem>
+                            {listOfCategory.map((data) =>
+                                <MenuItem type='radio' value={data} checked={checkCategory === data} onClick={() => handleCategory(data)}>
+                                    {data}
+                                </MenuItem>
+
+
+                            )}
+
+                        </Select>
+                    </FormControl>
+                </Grid>
+            </Grid2>
+
         )
     }
 
 
 
     return (
-        <Grid2>
-            {navBar()}
 
+
+        <Grid2 spacing={2}>
+            <Grid  spacing={"2px"}>
+                {navBar()}
+            </Grid>
+            <Grid >
                 {<SetCategory />}
-            
-            
-                {filterViewByPrice()}
-            
+            </Grid>
 
-        
-                {filterViewByBrand()}
+            <Grid container sx={{direction:"row"}} >
+                <Grid sx={{ height: "200px", width: "300px" }} item xs={12} md={3}>
+                    <Grid>
+                        {filterViewByPrice()}
 
-           
-                {viewSortbyRating()}
-            
-                {viewSortbyPrice()}
 
-            {productList}
+
+                        {filterViewByBrand()}
+
+
+                        {viewSortbyRating()}
+
+                        {viewSortbyPrice()}
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={9}>
+                <Grid container>
+                    {productList}
+                </Grid>
+                </Grid>
+            </Grid>
         </Grid2>
+
+
     )
 
 
