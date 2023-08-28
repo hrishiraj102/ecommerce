@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 import productsData from "../assets/artStore.json";
 import { Box, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import RatingStar from "./UI/RatingStar";
 
 
 const Productlist = ({ id, name, price, image, rating }) => (
-    <Grid height="320px"
+    <Grid height="340px"
         width="280px" >
         <Link to={`/product/${id}`}>
             <img src={image} alt={name} style={{ height: "260px", width: "250px" }} /><br />
 
             <Typography variant="body">{name}</Typography>
             <Typography variant="body2">{price}</Typography>
-            <Typography variant="body2">{rating}</Typography>
+            <Grid>{<RatingStar rating={rating}/>}</Grid>
         </Link>
     </Grid>
 

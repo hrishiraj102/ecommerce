@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
 import { ProductDetailsReturn } from "../Components/ProductDetails/ProductDetailsReturn";
 import { useParams } from "react-router-dom";
+import ResponsiveAppBar from "../Components/UI/ResponsiveAppBar";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { Grid } from "@mui/material";
 
 function ProductDetailsPage(props) {
 
     const [productAPI, setProductAPI] = useState();
     const {id}= useParams();
+
+    const navBar = () => {
+        return (
+            <Grid2>
+                <ResponsiveAppBar />
+
+            </Grid2>
+        )
+    }
 
     useEffect(() => {
         
@@ -23,8 +35,12 @@ function ProductDetailsPage(props) {
     },[]);
 
     return (
-        <div>
-            {/* Render the product details */}
+        <Grid>
+            <Grid  spacing={"2px"}>
+                {navBar()}
+            </Grid>
+       
+            
             {productAPI ? (
                 <ProductDetailsReturn
                     key={productAPI.id}
@@ -41,7 +57,7 @@ function ProductDetailsPage(props) {
             )}
 
 
-        </div>
+        </Grid>
     )
 }
 
