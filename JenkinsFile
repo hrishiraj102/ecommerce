@@ -10,8 +10,16 @@ pipeline {
         stage('Build') {
             steps {
                 // Install dependencies and build React.js project
-                sh 'npm install'
-                sh 'npm run build'
+                'npm install'
+                'npm run build'
+            }
+        }
+        stage('Run') {
+            steps {
+                script {
+                    // Start the React development server (or any other run command)
+                    'npm start'
+                }
             }
         }
     }
