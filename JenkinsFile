@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'node' // Replace with the name you configured in Jenkins
+    }
     stages {
         stage('Checkout') {
             steps {
