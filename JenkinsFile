@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy to Apache') {
             steps {
                 script {
-                    sh 'cp -r build/* /var/www/html'  // Copy build artifacts to web server directory
+                    sh 'cp -r build/* /var/www/html/ecommerce'  // Copy build artifacts to web server directory
                       
                 }
             }
