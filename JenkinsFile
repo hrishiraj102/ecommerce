@@ -20,14 +20,8 @@ pipeline {
         stage('Deploy to Apache') {
             steps {
                 script {
-                    def remoteServer = [:]
-                    remoteServer.name = 'ecommerceProject'
-                    remoteServer.host = '52.66.226.96'
-                    remoteServer.user = 'ubuntu'
-                    //remoteServer.password = 'your-ssh-password'
-
-                    sshPut remote: remoteServer, from: 'build/', into: '/var/www/html/ecommerce'
-                    sshScript remote: remoteServer, script: 'sudo systemctl restart apache2'
+                    sh 'cp -r build/* /var/www/html'  // Copy build artifacts to web server directory
+                    sh 'systemctl restart apache2'      // Restart Apache or your web server
                 }
             }
         }
