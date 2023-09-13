@@ -17,6 +17,14 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('Run') {
+            steps {
+                script {
+                    // Start the React development server (or any other run command)
+                    sh 'npm start'
+                }
+            }
+        }
         stage('Deploy to Apache') {
             steps {
                 script {
@@ -25,13 +33,6 @@ pipeline {
                 }
             }
         }
-        // stage('Run') {
-        //     steps {
-        //         script {
-        //             // Start the React development server (or any other run command)
-        //             sh 'npm start'
-        //         }
-        //     }
-        // }
+        
     }
 }
