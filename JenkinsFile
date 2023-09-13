@@ -21,9 +21,9 @@ pipeline {
         stage('Deploy to Apache') {
             steps {
                 script {
-                    // sh 'npm install -g serve'
-                    // sh 'serve -s build'
-                    sh 'cp -r build/* /var/www/html'  // Copy build artifacts to web server directory
+                    sh 'npm install -g serve'
+                    sh 'serve -s build'
+                    //sh 'cp -r build/* /var/www/html'  // Copy build artifacts to web server directory
                       
                 }
             }
