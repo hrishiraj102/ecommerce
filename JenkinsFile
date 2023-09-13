@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     sh 'cp -r build/* /var/www/html'  // Copy build artifacts to web server directory
-                    sh 'systemctl restart apache2'      // Restart Apache or your web server
+                      
                 }
             }
         }
