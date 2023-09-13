@@ -17,6 +17,20 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('Deploy to Apache') {
+            steps {
+                script {
+                    def remoteServer = [:]
+                    remoteServer.name = 'ecommerceProject'
+                    remoteServer.host = '52.66.226.96'
+                    remoteServer.user = 'ubuntu'
+                    //remoteServer.password = 'your-ssh-password'
+
+                    sshPut remote: remoteServer, from: 'build/', into: '/var/www/html/ecommerce'
+                    sshScript remote: remoteServer, script: 'sudo systemctl restart apache2'
+                }
+            }
+        }
         // stage('Run') {
         //     steps {
         //         script {
