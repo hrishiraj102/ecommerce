@@ -18,7 +18,7 @@ pipeline {
             }
         }
         
-        stage('Deploy to Apache') {
+        stage('Deploy') {
             steps {
                 script {
                     sh 'npm install -g serve'
