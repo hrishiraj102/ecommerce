@@ -18,16 +18,20 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
-            steps {
-                script {
-                    // sh 'npm install -g serve'
-                    // sh 'serve -s build'
-                    sh 'cp -r build/* /var/www/html/'  // Copy build artifacts to web server directory
-                      
-                }
-            }
+   stage('Deploy') {
+    steps {
+        script {
+            // Remove the default Nginx welcome page
+            sh 'rm -f /etc/nginx/sites-enabled/default'
+            
+            // Copy build artifacts to the Nginx web root directory
+            sh 'cp -r build/* /usr/share/nginx/html/'
+
+            // Restart Nginx to apply the changes
+            sh 'systemctl restart nginx'
         }
+    }
+}
 
         // stage('Run') {
         //     steps {
