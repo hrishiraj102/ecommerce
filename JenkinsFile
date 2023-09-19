@@ -25,7 +25,7 @@ pipeline {
                sh 'sudo rm -f /etc/nginx/sites-enabled/default'
             
             // Copy build artifacts to the Nginx web root directory
-            sh 'cp -r build/asset-manifest.json build/favicon.ico build/index.html build/logo192.png build/logo512.png build/manifest.json build/robots.txt build/static /usr/share/nginx/html/'
+            sh 'sudo cp -r build/asset-manifest.json build/favicon.ico build/index.html build/logo192.png build/logo512.png build/manifest.json build/robots.txt build/static /usr/share/nginx/html/'
 
             // Restart Nginx to apply the changes
             sh 'sudo systemctl restart nginx'
